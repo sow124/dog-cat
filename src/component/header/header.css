@@ -1,0 +1,33 @@
+.headerContainer{
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+}
+.headerCategory{
+  display: flex;
+  list-style: none;
+  width: 80%;
+  padding: 0px;
+  justify-content: space-around;
+}
+.CategoryList{
+  padding: 16px;
+}
+.join{
+  background-color: #00a991;
+  border-radius: 10px;
+  color: white;
+  line-height: 40px;
+  width: 8%;
+  text-align: center;
+}
+.logout{
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.animalInformationDetail{
+  width: 50%;
+}

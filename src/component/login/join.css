@@ -1,0 +1,66 @@
+.joinBox{
+  border: 1px solid black;
+  max-width: 70%;
+  margin: 40px auto 0px;
+  border-radius: 8px;
+}
+.joinTitle{
+  text-align: center;
+  margin: 16px auto 32px;
+  max-width: 1440px;
+}
+.joinForm{
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.joinContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 40%;
+  margin: 0 auto 18px;
+}
+.joinLabel{
+  font-size: 20px;
+}
+#id,#pw,#checkpw{
+  font-size: 18px;
+}
+.idcontainer{
+  position: relative;
+}
+.submitBtn{
+  color: white !important;
+  padding: 14px;
+  background-color: #00a991;
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+.checkid{
+  position: absolute;
+  right: 15%;
+  top: 0;
+  background-color: gray;
+  border: none;
+  color: white;
+  width: 100px;
+  height: 28px;
+}
+.goggleLogin{
+  display: flex;
+  justify-content: center;
+  background-color: #00a991;
+  border: 0;
+  border-radius: 16px;
+  padding: 14px;
+  color: white;
+  margin: 0 auto 16px;
+}
+.submitCon{
+  display: flex;
+  justify-content: center;
+}
+.loginBtn{
+  margin-right: 16px;
+}

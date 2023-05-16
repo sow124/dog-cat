@@ -1,0 +1,136 @@
+figure{
+  margin: 0;
+}
+.dogTitle{
+  text-align: center;
+}
+.container{
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.animalCard{
+  width: 50%;
+  height: 500px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.aniamlImg{
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
+.aniamlDetailCon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(50% - 2px);
+  border-right: 1px solid black;
+}
+.aniamlContainer{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.aniamlLink{
+  display: block;
+  margin-top: 16px;
+}
+.animalDetail{
+  width: 90%;
+}
+.animalKind{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0px 16px;
+}
+.animalDetailKind{
+  margin: 0;
+  font-size: 18px;
+}
+.animalDetailBox{
+  margin-bottom: 8px;
+}
+.care{
+  font-weight: 700;
+  margin-right: 8px;
+}
+.DetailContainer{
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.DetailKind{
+  padding: 0px 16px;
+  margin-top: 32px ;
+  display: flex;
+  justify-content: space-between;
+}
+.DetailStrong{
+  font-size: 18px;
+}
+.DetailImgCon{
+  position: relative;
+  height: 320px;
+  margin-top: 32px;
+}
+.DetaiBGlImg{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(4px);
+}
+.DetailImg{
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 10%;
+  left: 5%;  
+  border-radius: 15px;
+  border: 5px solid white;
+}
+.DetailInformationCon{
+  padding: 16px;
+  border: 1px solid black;
+  margin-top: 32px;
+  border-radius: 16px;
+
+}
+.DetailInformation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.informationCircle{
+  fill: #2563EB;
+  width: 40px;
+  height: 40px;
+}
+.animalInformation{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.animalInformationDetail{
+  margin-bottom: 8px;
+}
+.InformationStrong{
+  margin-right: 8px;
+}
+.significantCon{
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+.significant{
+  width: 24px;
+  height: 24px;
+  fill: #2563EB;
+  margin-right: 8px;
+}
+.structureCon{
+  margin-bottom: 8px;
+}

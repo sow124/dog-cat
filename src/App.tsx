@@ -1,65 +1,38 @@
 import { useEffect, useState } from 'react'
-import axios from "axios";
 import './App.css'
 import Header from './component/header/header'
-import { ThemeProvider } from 'styled-components'
-import GlobalStyles from './GlobalStyles';
-import { darkTheme, lightTheme } from './theme';
 import Home from './component/home/home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ProductDetail from './component/items/productDetail';
-import Footer from './component/footer/footer';
-import FashionCategory from './component/category/fashion';
-import AccesoryCategory from './component/category/accesory';
-import DegitalCategory from './component/category/digital';
-import Cart from './component/cart/cart';
-import { Provider } from 'react-redux';
-import store from './store';
 import NotFound from './component/Notfound/notfound';
+import Dog from './component/Dog/dog';
+import Cat from './component/Cat/cat';
+import Login from './component/login/login';
+import Community from './component/community/community';
+import Join from './component/login/join';
+import Detail from './component/detail/detail';
+import Addpost from './component/community/addpost';
+import PostDetail from './component/community/postDetail';
+import PostEdit from './component/community/postEdit';
 
 function App() {
-
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((response) => setProducts(response.data))
-      .catch((error) => console.log(error));
-  }, []);
-  const toggleDarkMode = () => {
-    setIsDarkMode((prev) => !prev);
-  };
-  const darkModeBtn =()=>{
-    if (
-      localStorage.getItem("bgMode") =='dark')
-      {
-      localStorage.setItem("bgMode", "light");
-      document.body.className ='dark'
-    } else {
-      window.localStorage.setItem("bgMode", "dark");
-      document.body.className ='light'
-    }
-  }
-  document.body.className = localStorage.getItem('bgMode');
   return (
-      <ThemeProvider theme={localStorage.getItem('bgMode')=="light" ? darkTheme : lightTheme}>
-        <GlobalStyles />
-      <Provider store={store}>
-          <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} darkModeBtn={darkModeBtn}/>
+    <div>
+        <Header/>
           <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path={'/products/:id'} element={<ProductDetail/>}/>
-            <Route path={'/fashion'} element={<FashionCategory/>}/>
-            <Route path={'/accesory'} element={<AccesoryCategory/>}/>
-            <Route path={'/digital'} element={<DegitalCategory/>}/>
-            <Route path={'/cart'} element={<Cart/>}/>
+            <Route path='/home' element={<Home/>}/>
+            <Route path={'/dog'} element={<Dog/>}/>
+            <Route path={'/cat'} element={<Cat/>}/>
+            <Route path={'/login'} element={<Login/>}/>
+            <Route path={'/join'} element={<Join/>}/>
+            <Route path={'/community'} element={<Community/>}/>
             <Route path={'/*'} element={<NotFound/>}/>
+            <Route path={':desertionNo'} element={<Detail/>}/>
+            <Route path={'/post'} element={<Addpost/>}/>
+            <Route path={'/content/:id'} element={<PostDetail/>}/>
+            <Route path={'/content/:id/edit'} element={<PostEdit/>}/>
         </Routes>
-        <Footer/>
-      </Provider>
-      </ThemeProvider>
+    </div>
   )
 }
 
