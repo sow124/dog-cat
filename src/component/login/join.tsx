@@ -21,41 +21,74 @@ const Join = ({}) => {
       else if (name === "password") setPassword(value);
   }
 
-  const emailCheck =async ()=>{
+  const emailCheck = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('이메일 형식으로 입력해주세요.');
+      return;
+    }
+  
     const querySnapshot = await getDocs(collection(db, "user"));
+    let isEmailAvailable = true;
+    
     querySnapshot.forEach((doc) => {
-    if(email === doc.data().email){
-        alert('이미있는 email입니다.')
-    }else(
-      alert('사용가능한 email입니다.')
-    )
-});
-  }
+      if (email === doc.data().email) {
+        isEmailAvailable = false;
+        alert('이미 있는 email입니다.');
+      }
+    });
+  
+    if (isEmailAvailable) {
+      alert('사용 가능한 email입니다.');
+    }
+  };
   const pwcheck =(e:any) =>{
     const { target: { value } } = e;
     setCheckpw(value)
   }
-  const onSubmit = async (e:any) => {
-      e.preventDefault();
-      let data ;
-      try {
-          data = await createUserWithEmailAndPassword(authService, email, password);
-          await setDoc(doc(db, "user", email), {
-            email: email,
-            pw: password
-          })
-          localStorage.setItem('login','true');
-          navigate(-1);
-      } catch (error:any) {
-        if(error.message == 'Firebase: Error (auth/invalid-email).'){
-            alert('아이디를 이메일 형식으로 입력해주세요')
-        }
-        localStorage.setItem('login','false');
+  const onSubmit = async (e: any) => {
+    e.preventDefault();
+  
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('이메일 형식으로 입력해주세요.');
+      return;
+    }
+  
+    const querySnapshot = await getDocs(collection(db, "user"));
+    let isEmailDuplicate = false;
+  
+    querySnapshot.forEach((doc) => {
+      if (email === doc.data().email) {
+        isEmailDuplicate = true;
+        alert('이미 있는 아이디입니다.');
       }
-      if(password !==checkpassword){
-        alert('비밀번호가일치하지않습니다.');
+    });
+  
+    if (isEmailDuplicate) {
+      return; 
+    }
+    let data;
+  
+    try {
+      data = await createUserWithEmailAndPassword(authService, email, password);
+      await setDoc(doc(db, "user", email), {
+        email: email,
+        pw: password
+      });
+      navigate('/login');
+    } catch (error: any) {
+      if (error.message === 'Firebase: Error (auth/invalid-email).') {
+        alert('아이디를 이메일 형식으로 입력해주세요.');
       }
-  }
+      localStorage.setItem('login', 'false');
+    }
+  
+    if (password !== checkpassword) {
+      alert('비밀번호가 일치하지 않습니다.');
+    }
+  };
   localStorage.setItem('login','false')
         return (
           <div className="joinBox">
@@ -96,7 +129,7 @@ const Join = ({}) => {
                 <input
                       type="submit"
                       value={"회원가입"}
-                      className='submitBtn'
+                      className='joinsubmitBtn'
                     />
               </form>
               <div>

@@ -9,16 +9,24 @@ function Community(){
   const [viewContent, setViewContents] = useState<any>([]);
   const [isLogined, setIsLogined] = useState(localStorage.getItem('login') === 'true');
 
-useEffect(()=>{
-	const getContents = async () => {
-		const data = await getDocs(collection(db,"post"));
-		setViewContents(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-	};
-	getContents()
-},[])
+  useEffect(() => {
+    const getContents = async () => {
+      const querySnapshot = await getDocs(collection(db, "post"));
+      const sortedData = querySnapshot.docs
+        .map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          createdAt: doc.data().createdAt ? doc.data().createdAt.toDate() : null,
+        }))
+        .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+      setViewContents(sortedData);
+    };
+
+    getContents();
+  }, []);
 useEffect(() => {
   authService.onAuthStateChanged((user) => {
-    console.log(user);
     if (user) {
       // 로그인 된 상태일 경우
       setIsLogined(true);
@@ -44,7 +52,7 @@ useEffect(() => {
             {content.file ? (
                 <img src={content.file} alt={content.file} className="contentImg"/>
               ) : (
-                <img src="http://via.placeholder.com/150x150" alt="Placeholder"  className="contentImg"/> // 대체 이미지 경로와 alt 텍스트를 수정해주세요.
+                <img src="http://via.placeholder.com/150x150" alt="Placeholder"  className="contentImg"/>
               )}
               <div className="communitycontent">
                 <h2>{content.title}</h2>

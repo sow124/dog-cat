@@ -12,24 +12,30 @@ function Search(){
     const postsRef = collection(db, 'post');
     const querySnapshot = await getDocs(query(postsRef, where('title', '>=', searchQuery)));
   
-    const searchResults = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
+    const searchResults = querySnapshot.docs
+      .map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      .filter((result:any) => result.title.includes(searchQuery));
   
     return searchResults;
   };
 
   const handleSearch = async (e: any) => {
     e.preventDefault();
-
+  
     if (!searchQuery) {
       return;
     }
-
+  
     const results = await fetchPostsByTitle(searchQuery);
     setSearchResults(results);
     setSearchQuery('');
+  
+    if (results.length === 0) {
+      alert('일치하는 제목이 없습니다.');
+    }
   };
 
   const filterSearchResults = (searchResults: any[], query: string) => {

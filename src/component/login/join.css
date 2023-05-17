@@ -64,3 +64,13 @@
 .loginBtn{
   margin-right: 16px;
 }
+.joinsubmitBtn{
+  display: block;
+  color: white !important;
+  padding: 14px;
+  background-color: #00a991;
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  margin: 0 auto;
+}
