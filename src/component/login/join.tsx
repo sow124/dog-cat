@@ -23,24 +23,19 @@ const Join = ({}) => {
 
   const emailCheck = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert('이메일 형식으로 입력해주세요.');
-      return;
-    }
-  
-    const querySnapshot = await getDocs(collection(db, "user"));
-    let isEmailAvailable = true;
-    
-    querySnapshot.forEach((doc) => {
-      if (email === doc.data().email) {
-        isEmailAvailable = false;
-        alert('이미 있는 email입니다.');
-      }
-    });
-  
-    if (isEmailAvailable) {
-      alert('사용 가능한 email입니다.');
-    }
+  if (!emailRegex.test(email)) {
+    alert('이메일 형식으로 입력해주세요.');
+    return;
+  }
+
+  const querySnapshot = await getDocs(collection(db, "user"));
+  const existingEmails = querySnapshot.docs.map((doc) => doc.data().email);
+
+  if (existingEmails.includes(email)) {
+    alert('이미 있는 email입니다.');
+  } else {
+    alert('사용 가능한 email입니다.');
+  }
   };
   const pwcheck =(e:any) =>{
     const { target: { value } } = e;
