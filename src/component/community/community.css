@@ -1,15 +1,15 @@
-.communityCon{
+.communityCon {
   max-width: 1440px;
-  margin:32px auto 0px;
+  margin: 32px auto 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.searchForm{
+.searchForm {
   max-width: 1080px;
   display: flex;
 }
-.searchlabel{
+.searchlabel {
   display: block;
   width: 50px;
   line-height: 30px;
@@ -17,23 +17,24 @@
   border: 1px solid black;
   border-right: 0px;
 }
-.serchBar{
+.serchBar {
   width: 300px;
+  border: 1px solid black;
 }
-.searchBtn{
+.searchBtn {
   width: 100px;
-  background-color: #00a991;
+  background-color: #00a991 !important;
   border: 1px;
   color: white;
 }
-.searchResultCon{
+.searchResultCon {
   margin-top: 32px;
   width: 400px;
   border: 1px solid black;
   border-radius: 8px;
   text-align: center;
 }
-.searchResultdiv{
+.searchResultdiv {
   margin: 16px 0px;
   line-height: 35px;
   border: 1px black solid;
@@ -42,7 +43,7 @@
   background-color: #00a991;
   color: white;
 }
-.addpost{
+.addpost {
   width: 400px;
   text-align: center;
   margin-top: 32px;
@@ -51,47 +52,47 @@
   border-radius: 8px;
   color: white !important;
 }
-.contentLink{
+.contentLink {
   display: block;
   max-width: 1080px;
 }
-.contentCon{
+.contentCon {
   margin-top: 32px;
   display: flex;
   flex-direction: row;
   max-width: 1080px;
 }
-.contentImg{
+.contentImg {
   margin-right: 32px;
 }
-.communitycontent{
+.communitycontent {
   width: 600px;
   text-align: center;
 }
-.addpostCon{
+.addpostCon {
   max-width: 1080px;
   margin: 0 auto;
 }
-.addpostinputCon{
+.addpostinputCon {
   margin-top: 32px;
   display: flex;
   align-items: center;
 }
-.addpostLabel{
+.addpostLabel {
   display: block;
   margin-right: 32px;
 }
-.addTitle{
+.addTitle {
   max-width: 80%;
   width: 100%;
   line-height: 30px;
 }
-.contentText{
+.contentText {
   width: 80%;
   height: 800px;
   resize: none;
 }
-.addSubmit{
+.addSubmit {
   margin-top: 32px;
   width: 200px;
   height: 50px;
@@ -102,54 +103,54 @@
   display: block;
   margin: 0 auto;
 }
-.ContentDetail{
+.ContentDetail {
   max-width: 1080px;
   margin: 0 auto;
 }
-.ContentDetailTitle{
+.ContentDetailTitle {
   width: 100%;
   text-align: center;
 }
-.contentBTN{
+.contentBTN {
   display: flex;
   justify-content: flex-end;
   margin-right: 10px;
 }
-.contentBtnLink{
+.contentBtnLink {
   margin-right: 16px;
 }
-.contentEdit{
+.contentEdit {
   line-height: 30px;
 }
-.contentDetailImg{
+.contentDetailImg {
   display: block;
   margin: 16px auto 0px;
 }
-.contentDetailP{
+.contentDetailP {
   margin-top: 16px;
   text-align: center;
 }
-.commentCon{
+.commentCon {
   max-width: 1080px;
   margin: 32px auto 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.addcommnet{
+.addcommnet {
   display: flex;
   margin-top: 16px;
 }
-.commentText{
+.commentText {
   width: 400px;
   height: 50px;
   resize: none;
   margin-right: 32px;
 }
-.commentBtn{
+.commentBtn {
   width: 80px;
 }
-.addcommentCon{
+.addcommentCon {
   max-width: 1080px;
   margin: 16px auto 0;
   display: flex;
@@ -158,29 +159,29 @@
   border: 1px solid black;
   border-radius: 8px;
 }
-.commentDetail{
+.commentDetail {
   display: flex;
   align-items: center;
   width: 80%;
 }
-.commentEmail{
+.commentEmail {
   margin-right: 32px;
 }
-.commentcontent{
+.commentcontent {
   width: 100%;
 }
-.editcomment{
+.editcomment {
   margin-right: 16px;
 }
-.editCommentTextA{
+.editCommentTextA {
   width: 80%;
   text-align: center;
 }
-.editSubmit{
+.editSubmit {
   display: flex;
   justify-content: space-evenly;
 }
-.editSubmitbtn{
+.editSubmitbtn {
   margin-top: 32px;
   width: 200px;
   height: 50px;
